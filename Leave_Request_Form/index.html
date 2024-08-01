@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title>员工请假申请表</title>
+</head>
+<body>
+<div class="form-container">
+    <div class="head">
+        <h1>员工请假申请表</h1>
+        <h2>员工请假时填写的申请表</h2>
+    </div>
+    <div class="placeholder-line"></div>
+
+    <!-- ----------------------------------- 个人信息 ---------------------------------- -->
+
+    <div class="form-group">
+        <label class="bold">申请人姓名: <span class="required">*</span></label>
+        <input type="text" id="name" name="name" placeholder="请输入" required="true" readonly="true">
+    </div>
+    <div class="form-group">
+        <label class="bold">员工编号: <span class="required">*</span></label>
+        <input type="text" id="employeeID" name="employeeID" placeholder="请输入" required="true" readonly="true">
+    </div>
+    <div class="form-group">
+        <label class="bold">部门/职位: <span class="required">*</span></label>
+        <input type="text" id="department-occupation" name="department-occupation" placeholder="请输入" required="true" readonly="true">
+        <p class="errorMessage"></p>
+    </div>
+    <div class="form-group">
+        <label class="bold">联系电话: <span class="required">*</span></label>
+        <input type="text" id="phone-number" name="phone-number" placeholder="请输入" required="true">
+        <p id="phoneErrorMessage" class="errorMessage"></p>
+    </div>
+    <div class="placeholder-line"></div>
+
+    <!-- ----------------------------------- 请假类别、理由、及相关附件 ---------------------------------- -->
+
+    <div class="form-group">
+        <!-- <label class="small grey">请选择您最喜欢的运动</label> -->
+        <div id="bottom-selected">
+            <label class="bold">请假类别</label>
+            <!-- TODO: 自定义标签 下拉选择 -->
+            <custom-button></custom-button>
+        </div>
+    </div>
+    <div class="placeholder-line"></div>
+    <div class="form-group">
+        <!-- <label class="small grey">请选择您最喜欢的运动</label> -->
+        <label class="bold">请假类别</label>
+        <div class="radio-group" id="radioGroup">
+            <div class="radio-option">
+                <div class="radio-dot">
+                    <div class="radio-dot-inner"></div>
+                </div>
+                <span class="radio-label" data-value="1">1、事假</span>
+            </div>
+            <div class="radio-option">
+                <div class="radio-dot">
+                    <div class="radio-dot-inner"></div>
+                </div>
+                <span class="radio-label" data-value="2">2、病假</span>
+            </div>
+            <div class="radio-option">
+                <div class="radio-dot">
+                    <div class="radio-dot-inner"></div>
+                </div>
+                <span class="radio-label" data-value="3">3、工伤假</span>
+            </div>
+            <div class="radio-option">
+                <div class="radio-dot">
+                    <div class="radio-dot-inner"></div>
+                </div>
+                <span class="radio-label" data-value="4">4、婚假</span>
+            </div>
+            <div class="radio-option">
+                <div class="radio-dot">
+                    <div class="radio-dot-inner"></div>
+                </div>
+                <span class="radio-label" data-value="5">5、丧假</span>
+            </div>
+            <div class="radio-option">
+                <div class="radio-dot">
+                    <div class="radio-dot-inner"></div>
+                </div>
+                <span class="radio-label" data-value="6">6、产假</span>
+            </div>
+            <div class="radio-option">
+                <div class="radio-dot">
+                    <div class="radio-dot-inner"></div>
+                </div>
+                <span class="radio-label" data-value="7">7、陪产假</span>
+            </div>
+            <div class="radio-option">
+                <div class="radio-dot">
+                    <div class="radio-dot-inner"></div>
+                </div>
+                <span class="radio-label" data-value="8">8、年休假</span>
+            </div>
+            <div class="radio-option">
+                <div class="radio-dot">
+                    <div class="radio-dot-inner"></div>
+                </div>
+                <span class="radio-label" data-value="9">9、调休</span>
+            </div>
+            <div class="radio-option">
+                <div class="radio-dot">
+                    <div class="radio-dot-inner"></div>
+                </div>
+                <span class="radio-label" data-value="10">10、其他假别</span>
+                <input type="text" id="otherInput" placeholder="请输入其他选项">
+            </div>
+        </div>
+        <div class="box-container">
+            <p class="bold grey note">注: ①以上第2、3、4、5、6、7项假期申请需附相关证明材料。</p>
+            <p class="bold grey note">②第9项假期申请需经人事行政部核实后方可休假。</p>
+        </div>
+        <br>
+    </div>
+    <div class="form-group" id="attachment-container">
+        <label class="bold">相关附件: <span class="required">*</span></label>
+        <select-file type="file" id="attachment" name="attachment" placeholder="请输入" required="true"></select-file>
+    </div>
+    <div class="form-group">
+        <label class="bold">请假理由: <span class="required">*</span></label>
+        <textarea id="reason" name="reason" placeholder="请输入" required="true"></textarea>
+    </div>
+    <div class="placeholder-line"></div>
+
+    <!-- ----------------------------------- 请假时间 ---------------------------------- -->
+
+    <div class="form-group">
+<!--        <label class="bold">开始日期: <span class="required">*</span></label>-->
+        <select-time  id="start-time" name="reason" placeholder="请输入" required="true"></select-time>
+    </div>
+<!--    <div class="form-group">-->
+<!--        <label class="bold">结束日期: <span class="required">*</span></label>-->
+<!--        <select-time type="datetime-local" id="end-time" name="reason" placeholder="请输入" required="true"></select-time>-->
+<!--    </div>-->
+    <!-- TODO:(实现中） 1. 如果结束日期小于开始日期，重置。 2. 根据选择的时间自动生成合计时间。 -->
+    <div class="form-group">
+        <label class="bold">合计时间: <span id="number-of-days"></span>天  <span id="number-of-hours"></span>小时</label>
+    </div>
+    <div class="placeholder-line"></div>
+
+    <!-- ----------------------------------- 地址信息 ----------------------------------------- -->
+
+    <div class="form-group">
+        <label class="bold">地址信息</label>
+        <label class="bold">户籍地址</label>
+        <!-- TODO: 自定义组件，前面的城市部分让用户选择，只需填写后面的街道信息 -->
+        <flutter-city_pickers id="permanent-address" name="permanent-address" placeholder="请输入"></flutter-city_pickers>
+        <label class="bold">街道信息</label>
+        <input type="text" id="permanent-address-detail" name="permanent-address" placeholder="请输入">
+
+        <label class="bold">现在住址</label>
+        <flutter-city-pickers id="current-address" name="current-address" placeholder="请输入"></flutter-city-pickers>
+        <label class="bold">街道信息</label>
+        <input type="text" id="current-address-detail" name="current-address" placeholder="请输入">
+    </div>
+    <div class="placeholder-line"></div>
+
+    <!-- ----------------------------- 工作交接 ------------------------- -->
+
+    <div class="form-group">
+        <label class="bold">代理事项: <span class="required">*</span></label>
+        <input type="text" id="agent-event" name="agent-event" placeholder="请输入" required="true">
+        <p class="errorMessage"></p>
+    </div>
+    <div class="form-group">
+        <label class="bold">代理人: <span class="required">*</span></label>
+        <people-pick type="text" id="agent-person" name="agent-person" placeholder="请输入" required="true"></people-pick>
+        <p class="errorMessage"></p>
+    </div>
+     <div class="placeholder-line"></div>
+
+    <!-- ----------------------------- 备注 ------------------------- -->
+
+    <div class="form-group">
+        <label class="bold">备注: </label>
+        <textarea id="remark" name="remark" placeholder="请输入"></textarea>
+    </div>
+    <div class="placeholder-line"></div>
+
+    <!-- ----------------------------------- 请假说明 ----------------------------------------- -->
+
+    <div class="form-group">
+        <div class="box-container">
+            <p class="illustration bold">说明: 1、请假时间以半天为最小请假单位，不足半天按半天计算。</p>
+            <p class="illustration bold">2、请假半天（含）至3天（不含）以内，由部门主管（经理）及部门总监审批；请假3天（含）以上由公司副总经理或总经理审批。</p>
+        </div>
+    </div>
+     <div class="placeholder-line"></div>
+
+    <!-- 填写完成提交成功后才有的组件 -->
+    <!-- ------------------------------------ 审批流程 --------------------------------- -->
+
+    <div id="approval-part">
+        <!-- ----------------------------------- 审批流程 ------------------------------------------------- -->
+
+        <div class="form-group">
+            <label class="bold">审批流程</label>
+            <!-- TODO: 未实现 -->
+            <approval-process></approval-process>
+        </div>
+        <div class="placeholder-line"></div>
+
+        <!-- ----------------------------------- 签字 ----------------------------------------- -->
+
+        <div class="form-group">
+            <label class="bold">部门经理意见: </label>
+            <flutter-sign></flutter-sign>
+        </div>
+        <div class="form-group">
+            <label class="bold">总经理意见: </label>
+            <flutter-sign></flutter-sign>
+        </div>
+        <div class="placeholder-line"></div>
+
+        <!-- ----------------------------------- 发送、同步表单 ------------------------------------------------- -->
+        <!-- TODO: 未实现 -->
+
+        <div class="form-group">
+            <label>发送到群</label>
+            <!-- TODO: 更改为自定义标签 -->
+        </div>
+        <div class="placeholder-line"></div>
+        <div class="form-group">
+            <label>通过聊天发送给审批人</label>
+            <!-- TODO: 更改为自定义标签 -->
+            <switch-button id="send-chat" class="switch"></switch-button>
+        </div>
+        <div class="placeholder-line"></div>
+
+        <div class="form-group">
+            <label>通过后同步到我的日历</label>
+            <!-- TODO: 更改为自定义标签 -->
+            <switch-button id="syncCalendar" class="switch"></switch-button>
+        </div>
+        <div class="placeholder-line"></div>
+    </div>
+
+
+
+    <!-- ----------------------------------- 存草稿、提交按钮 ----------------------------------------- -->
+    
+    <div class="form-actions">
+        <div type="button" class="save-draft">
+            <div class="icon"></div>
+            <span>存草稿</span>
+        </div>
+        <!-- TODO: 在用户点击后，屏幕置于第一个不符合填写的位置 -->
+        <button type="submit" id="submit" class="submit">提交</button>
+    </div>
+</div>
+
+<script src="index.js"></script>
+</body>
+</html>

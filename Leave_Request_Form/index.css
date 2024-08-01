@@ -1,0 +1,393 @@
+/* <!-- --------------------------------通用样式 ---------------------------- --> */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+}
+
+.form-container {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #fff;
+}
+
+.placeholder-line {
+    height: 20px;
+    background-color: #F5F5F5;
+}
+
+.form-group label {
+    display: block;
+    margin: 15px 10px;
+}
+
+.form-group .required {
+    color: red;
+}
+
+.bold {
+    font-weight: bold;
+}
+.small {
+    font-size: 14px;
+}
+.grey {
+    color: #696969;
+}
+.form-group .box-container {
+    width: 100%;
+    padding: 0px 15px;
+}
+
+/* <!-- --------------------------------标题样式 ---------------------------- --> */
+
+.head {
+    width: 100%;
+    height: 150px;
+    text-align: center;
+    background-image: url('images/head_bg.png');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.head h1 {
+    font-size: 24px;
+    margin: 0;
+    color: #fff;
+}
+.head h2 {
+    font-size: 16px;
+    color: #ddd;
+    margin: 0;
+}
+
+/* <!-- --------------------------------输入样式 ---------------------------- --> */
+/* TODO: 一些输入框需要限制字数 */
+
+.form-group input,
+.form-group textarea {
+    height: auto;
+    width: 100%;
+    padding: 10px;
+    color: #000;
+    font-size: 16px;
+    border: none;
+}
+.form-group textarea {
+    min-height: 100px;
+    resize: none;
+    width: 100%;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+#otherInput {
+    display: none;
+    width: 100%;
+}
+
+#phone-number {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+
+
+/* <!-- --------------------------------进度条样式 ---------------------------- --> */
+
+.progress-bar {
+    width: 300px;
+    height: 10px;
+    background-color: #f0f0f0;
+    margin: 20px 10px;
+}
+
+.progress {
+    height: 100%;
+    background-color: #4169E1;
+    width: 0;
+    transition: width 0.5s;
+}
+
+/* <!-- --------------------------------星星评分样式 ---------------------------- --> */
+
+.rating {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+    margin-left: 10px;
+}
+.rating-value {
+    font-size: 16px;
+    margin: 10px;
+    margin-left: 100px;
+}
+
+.star {
+    font-size: 30px;
+    color: #ddd;
+    cursor: pointer;
+    transition: color 0.2s;
+    margin-right: 5px;
+}
+
+.star.active {
+    color: #ffd700;
+}
+
+/* <!-- --------------------------------表格样式 ---------------------------- --> */
+
+.table {
+    display: flex;
+    flex-direction: column;
+    width: 100%-40px;
+    border: 1px solid #ddd;
+    margin: 20px;
+}
+
+.table-header, .table-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.table-header {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+.table-cell {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    display: flex;
+    align-items: center; /* 垂直居中 */
+}
+
+.table-body .table-row:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* 姓名列宽度加倍 */
+.table-cell:nth-child(1) {
+    flex: 2;
+}
+
+/* 设置每列的宽度 */
+.table-cell:nth-child(2) {
+    flex: 1;
+}
+
+.table-cell:nth-child(3) {
+    flex: 1;
+}
+
+/* <!-- --------------------------------单选样式 ---------------------------- --> */
+.radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 10px;
+}
+
+.radio-option {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    margin: 10px 0;
+}
+
+.radio-dot {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    border: 1px solid #C0C0C0;
+    margin-left: 20px;
+    margin-right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.radio-dot-inner {
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background-color: #007bff;
+    transition: all 0.2s ease;
+}
+
+.radio-dot.selected .radio-dot-inner {
+    width: 12px;
+    height: 12px;
+}
+.radio-dot::after {
+    content: '';
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #007bff;
+    display: none;
+}
+
+.radio-option.selected .radio-dot::after {
+    display: block;
+}
+
+.radio-label {
+    font-size: 16px;
+}
+
+#attachment-container {
+    display:none;
+}
+
+/* <!-- --------------------------------进度滑动样式 ---------------------------- --> */
+
+.range-slider {
+    width: 300px;
+    height: 5px;
+    background-color: #DCDCDC;
+    border-radius: 10px;
+    position: relative;
+    cursor: pointer;
+    margin-top: 20px;
+    margin-left: 30px;
+}
+
+.range-slider-fill {
+    height: 100%;
+    background-color: #87CEFA;
+    border-radius: 10px;
+    width: 50%; /* 初始值 */
+}
+
+.range-slider-thumb {
+    width: 20px;
+    height: 20px;
+    background-color: #2980b9;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%; /* 初始位置 */
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.range-value {
+    margin-top: 20px;
+    font-size: 18px;
+    margin-left: 10px;
+    margin-bottom: 20px;
+}
+
+/* <!-- -------------------------------- 可删 ---------------------------- --> */
+
+give-like {
+    height: 100px;
+}
+
+/* <!-- -------------------------------- 错误信息样式 ---------------------------- --> */
+
+.errorMessage {
+    color: red;
+    font-weight: bold;
+    font-size: 14px;
+    margin-left: 10px;
+}
+
+
+
+/* <!-- --------------------------------存草稿和提交样式 ---------------------------- --> */
+.form-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.save-draft, .submit {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 10px;
+}
+
+.save-draft {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: transparent;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.save-draft .icon {
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+.save-draft span {
+    display: block;
+}
+
+.save-draft:before {
+    content: url('images/save.png');
+    margin-right: 10px;
+}
+
+.submit {
+    flex: 5;
+    background-color: #4757e2;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    text-align: center;
+}
+
+/* <!-- -------------------------------- 下拉单选样式 ---------------------------- --> */
+
+#bottom-selected {
+    height: 26px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 0;
+}
+
+#bottom-selected label {
+    flex: 1.5;
+}
+
+#bottom-selected custom-button {
+    flex: 1;
+}
+
+
+/* <!-- -------------------------------- 审批流程 ---------------------------- --> */
+#approval-part {
+    display: none;
+}
+
+input[type="checkbox"] {
+    display: inline-block;
+}
+
